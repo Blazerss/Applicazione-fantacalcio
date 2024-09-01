@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
 
-df = pd.read_excel("C:/Users/bront/OneDrive/Desktop/fanta.xlsx")
+df = pd.read_csv("C:/Users/bront/OneDrive/Desktop/fanta.csv")
 st.title('Fanta')
-keywords = st_tags(label='# Inserisci giocatore:', text='Press enter to add more', value="",
-                       suggestions=df["Nome"].tolist())
+keywords = st_tags(label='# Inserisci giocatore:', text='Press enter to add more', value="", suggestions=df["Nome"].tolist())
+#keywords = st.text_input("Movie title", "")
+
 statistiche = ["Pv", "Mv", "Fm", "Gf", "Gs", "Rp", "Rc", "R+", "R-", "Ass", "Amm", "Esp", "Au"]
 gioc = " ".join(keywords)
+print(gioc)
 df.set_index("Nome",inplace=True)
 if len(gioc.split()) == 1:
     st.write(f"Squadra: {df.loc[gioc.capitalize(),"Squadra"]}")
@@ -28,7 +30,6 @@ if len(gioc.split()) == 1:
 elif len(gioc.split())>1:
     y = [u.capitalize() for u in gioc.split()]
     x = " ".join(y)
-    print(gioc)
 
     st.write(f"Squadra: {df.loc[x,"Squadra"]}")
     if df.loc[x, "Diff."] >= 0:
