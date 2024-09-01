@@ -1,19 +1,6 @@
-
 import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
-import requests
-from io import StringIO
-
-
-def load_original_data():
-    url = 'https://raw.githubusercontent.com/[username]/[repository]/main/[file].csv'
-    response = requests.get(url)
-    if response.status_code == 200:
-        return pd.read_csv(StringIO(response.text))
-    else:
-        st.error("Failed to load data from GitHub.")
-        return None
 
 df = pd.read_excel("C:/Users/bront/OneDrive/Desktop/fanta.xlsx")
 st.title('Fanta')
