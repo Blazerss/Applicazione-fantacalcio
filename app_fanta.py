@@ -49,13 +49,13 @@ with col2:
             if df.loc[gioc.capitalize(), "R"] == "P":
                 st.write(f" Goal Subiti: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][4])}")
             if df.loc[gioc.capitalize(), "R"] == "P":
-                st.write(f" Rigori Parati: {int(df.loc[x, [u + " 23_24" for u in statistiche]][5])}")
+                st.write(f" Rigori Parati: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][5])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Calciati: {int(df.loc[x, [u + " 23_24" for u in statistiche]][6])}")
+                st.write(f" Rigori Calciati: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][6])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Segnati: {int(df.loc[x, [u + " 23_24" for u in statistiche]][7])}")
+                st.write(f" Rigori Segnati: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][7])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Sbagliati: {int(df.loc[x, [u + " 23_24" for u in statistiche]][8])}")
+                st.write(f" Rigori Sbagliati: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][8])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
                 st.write(f" Assist: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][9])}")
             st.write(f" Ammunizioni: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][10])}")
@@ -63,6 +63,8 @@ with col2:
             st.write(f" Autogol: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][12])}")
 
     elif len(gioc.split()) > 1:
+        y = [u.capitalize() for u in gioc.split()]
+        x = " ".join(y)
         if not all(df.loc[x, [u + " 23_24" for u in statistiche]].isna()):
             st.write(f" Partite Giocate: {int(df.loc[x, [u + " 23_24" for u in statistiche]][0])}")
             st.write(f" Media Voto: {df.loc[x, [u + " 23_24" for u in statistiche]][1]}")
@@ -98,13 +100,13 @@ with col3:
             if df.loc[gioc.capitalize(), "R"] == "P":
                 st.write(f" Goal Subiti: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][4])}")
             if df.loc[gioc.capitalize(), "R"] == "P":
-                st.write(f" Rigori Parati: {int(df.loc[x, [u + " 22_23" for u in statistiche]][5])}")
+                st.write(f" Rigori Parati: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][5])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Calciati: {int(df.loc[x, [u + " 22_23" for u in statistiche]][6])}")
+                st.write(f" Rigori Calciati: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][6])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Segnati: {int(df.loc[x, [u + " 22_23" for u in statistiche]][7])}")
+                st.write(f" Rigori Segnati: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][7])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Sbagliati: {int(df.loc[x, [u + " 22_23" for u in statistiche]][8])}")
+                st.write(f" Rigori Sbagliati: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][8])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
                 st.write(f" Assist: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][9])}")
             st.write(f" Ammunizioni: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][10])}")
@@ -112,6 +114,8 @@ with col3:
             st.write(f" Autogol: {int(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]][12])}")
 
     elif len(gioc.split()) > 1:
+        y = [u.capitalize() for u in gioc.split()]
+        x = " ".join(y)
 
         if not all(df.loc[x, [u + " 22_23" for u in statistiche]].isna()):
             st.write(f" Partite Giocate: {int(df.loc[x, [u + " 22_23" for u in statistiche]][0])}")
@@ -149,13 +153,13 @@ with col4:
             if df.loc[gioc.capitalize(), "R"] == "P":
                 st.write(f" Goal Subiti: {int(df.loc[gioc.capitalize(),  statistiche][4])}")
             if df.loc[gioc.capitalize(), "R"] == "P":
-                st.write(f" Rigori Parati: {int(df.loc[x,  statistiche][5])}")
+                st.write(f" Rigori Parati: {int(df.loc[gioc.capitalize(),  statistiche][5])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Calciati: {int(df.loc[x,  statistiche][6])}")
+                st.write(f" Rigori Calciati: {int(df.loc[gioc.capitalize(),  statistiche][6])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Segnati: {int(df.loc[x,  statistiche][7])}")
+                st.write(f" Rigori Segnati: {int(df.loc[gioc.capitalize(),  statistiche][7])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
-                st.write(f" Rigori Sbagliati: {int(df.loc[x,  statistiche][8])}")
+                st.write(f" Rigori Sbagliati: {int(df.loc[gioc.capitalize(),  statistiche][8])}")
             if df.loc[gioc.capitalize(), "R"] != "P":
                 st.write(f" Assist: {int(df.loc[gioc.capitalize(),  statistiche][9])}")
             st.write(f" Ammunizioni: {int(df.loc[gioc.capitalize(),  statistiche][10])}")
@@ -163,6 +167,8 @@ with col4:
             st.write(f" Autogol: {int(df.loc[gioc.capitalize(), statistiche][12])}")
 
     elif len(gioc.split()) > 1:
+        y = [u.capitalize() for u in gioc.split()]
+        x = " ".join(y)
 
         if not all(df.loc[x, statistiche].isna()):
             st.write(f" Partite Giocate: {int(df.loc[x, statistiche][0])}")
