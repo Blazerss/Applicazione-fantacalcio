@@ -12,7 +12,8 @@ print(gioc)
 df.set_index("Nome",inplace=True)
 col1,col2,col3,col4=st.columns(4,gap="medium")
 with col1:
-   st.write("**Generali**")
+   if gioc:
+      st.write("**Generali**")
    if len(gioc.split()) == 1:
        st.write(f"Squadra: {df.loc[gioc.capitalize(),"Squadra"]}")
        if df.loc[gioc.capitalize(), "Diff."] >= 0:
@@ -38,7 +39,8 @@ with col1:
 
 
 with col2:
-    st.write("**Stagione 23-24**")
+    if gioc:
+       st.write("**Stagione 23-24**")
     if len(gioc.split()) == 1:
         if not all(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]]):
             st.write(f" Partite Giocate: {int(df.loc[gioc.capitalize(), [u + " 23_24" for u in statistiche]][0])}")
@@ -88,7 +90,8 @@ with col2:
             st.write(f" Autogol: {int(df.loc[x, [u + " 23_24" for u in statistiche]][12])}")
 
 with col3:
-    st.write("**Stagione 22-23**")
+    if gioc:
+        st.write("**Stagione 22-23**")
     if len(gioc.split()) == 1:
 
         if not all(df.loc[gioc.capitalize(), [u + " 22_23" for u in statistiche]]):
@@ -141,7 +144,8 @@ with col3:
 
 
 with col4:
-    st.write("**Stagione 21-22**")
+    if gioc:
+       st.write("**Stagione 21-22**")
     if len(gioc.split()) == 1:
 
         if not all(df.loc[gioc.capitalize(), statistiche]):
@@ -191,3 +195,34 @@ with col4:
             st.write(f" Ammunizioni: {int(df.loc[x, statistiche][10])}")
             st.write(f" Espulsioni: {int(df.loc[x, statistiche][11])}")
             st.write(f" Autogol: {int(df.loc[x, statistiche][12])}")
+
+
+col1,col2=st.columns(2)
+
+with col1:
+
+   squadra = st_tags(label="Squadra", text='Press enter to add more', suggestions=df.index.tolist())
+with col2:
+    crediti = st_tags(label="Crediti", text='Press enter to add more')
+
+x=0
+df1 = pd.DataFrame(columns=["Rosa","Squadra","Costo","Crediti Rimasti"])
+rosa=[]
+for i in squadra:
+    if len(i.split()) == 1:
+        rosa.append( i.capitalize())
+    else:
+        y = [u.capitalize() for u in i.split()]
+        rosa.append( " ".join(y))
+
+
+for i in range(len(rosa)):
+    d = {"Rosa":rosa[i],"Squadra":df.loc[rosa[i],"Squadra"],"Costo":int(crediti[i]),"Crediti Rimasti" : 500 - x - int(crediti[i])}
+
+    df1 = df1._append(d,ignore_index=True)
+    x += int(crediti[i])
+df1.set_index("Rosa",inplace=True)
+if not df1.empty:
+   table= st.table(df1)
+
+
