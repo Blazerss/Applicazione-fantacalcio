@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
-
-df = pd.read_csv("C:/Users/bront/OneDrive/Desktop/fanta.csv")
+url= "https://raw.githubusercontent.com/Blazerss/Blazerss/main/fanta.csv"
+df = pd.read_csv(url)
 st.title('Fanta')
 keywords = st_tags(label='# Inserisci giocatore:', text='Press enter to add more', value="", suggestions=df["Nome"].tolist())
 #keywords = st.text_input("Movie title", "")
