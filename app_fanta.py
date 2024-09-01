@@ -1,5 +1,3 @@
-pip install streamlit-tags
-
 import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
