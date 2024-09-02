@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from streamlit_tags import st_tags
-url= "https://raw.githubusercontent.com/Blazerss/Blazerss/main/fanta.csv"
+url= "https://raw.githubusercontent.com/Blazerss/Applicazione-fantacalcio/main/fanta.csv"
 df = pd.read_csv(url)
 st.title('Fanta')
 keywords = st_tags(label='# Inserisci giocatore:', text='Press enter to add more', value="", suggestions=df["Nome"].tolist())
